@@ -6,36 +6,23 @@ function handleError(error) {
   throw new Error(chalk.red(error.code, "Não há este caminho"));
 }
 
-// function getFile(filePath) {
-//   const encoding = 'utf-8';
-//   fs.readFile(filePath, encoding, (error, res) => {
-//     if (error) {
-//       handleError(error);
-//     }
-//     console.log(chalk.green(res));
-//   })
-// }
-
-// Funçōes com then//
-// function getFile(filePath) {
-//   const encoding = "utf-8";
-//   fs.promises
-//     .readFile(filePath, encoding)
-//     .then((res) => {
-//       console.log(chalk.green(res));
-//     })
-//     .catch(handleError);
-// }
+function extractLinks(texto) {
+  const regex = /\[([^[\]]*?)\]\((https?:\/\/[^\s?#.].[^\s]*)\)/gm;
+  const parts = [...texto.matchAll(regex)];
+  const result = parts.map(part => ({[part[1]]: part[2]}));
+  return result;
+}
 
 async function getFile(filePath) {
   try {
     const encoding = 'utf-8';
     const text = await fs.promises.readFile(filePath, encoding);
-    console.log(chalk.green(text));
+    console.log(extractLinks(text));
   } catch (error){
     handleError(error)
   } 
 }
 
 getFile("./arquivos/texto.md");
-getFile("./arquivos");
+
+
