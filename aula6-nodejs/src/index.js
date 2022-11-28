@@ -10,7 +10,7 @@ function extractLinks(texto) {
   const regex = /\[([^[\]]*?)\]\((https?:\/\/[^\s?#.].[^\s]*)\)/gm;
   const parts = [...texto.matchAll(regex)];
   const result = parts.map(part => ({[part[1]]: part[2]}));
-  return result.length !== 0 ? result : chalk.yellow('Não há links no arquivo');
+  return result.length !== 0 ? result : chalk.red('Não há links no arquivo');
 }
 
 async function getFile(filePath) {
