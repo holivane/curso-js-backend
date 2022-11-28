@@ -5,10 +5,10 @@ import validatedList from "./valida.js";
 
 const way = process.argv;
 
-function printList(result, file) {
+async function printList(result, file) {
   console.log(
     chalk.yellow(`Lista de links do arquivo: ${file}`),
-    validatedList(result)
+    await validatedList(result)
   );
 }
 
