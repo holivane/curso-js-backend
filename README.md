@@ -9,7 +9,8 @@ Atividades simples de objetos
 - Fundamentação
 - Beneficios
 
-Pirâmide de testes: <br>
-- E2E................../\    <br>
-- Integração...../__\   <br>
-- Unitários....../____\  <br>
+### Pirâmide de testes: <br>
+E2E................../\    <br>
+Integração...../__\   <br>
+Unitários....../____\  <br>
+
