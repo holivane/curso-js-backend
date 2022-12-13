@@ -1,37 +1,42 @@
-import assert from 'node:assert/strict';
+// import assert from 'node:assert/strict';
 
 const somaHorasExtras = (salario, valorHorasExtras) => salario + valorHorasExtras;
 
 const calculaDescontos = (salario, descontos) => salario - descontos;
 
-const verificaSe = (valor) => {
-  const assercoes = {
-    ehExatemanteIgualA(esperado) {
-      assert.strictEqual(valor, esperado, 'O valor retornado não é o esperado');
-    },
-  };
-  return assercoes;
+export {
+  somaHorasExtras,
+  calculaDescontos,
 };
 
-const teste = (titulo, funcaoDeTeste) => {
-  try {
-    funcaoDeTeste();
-    console.log(`${titulo} passou`);
-  } catch (error) {
-    console.log(`${titulo} não passou`, error);
-  }
-};
+// const verificaSe = (valor) => {
+//   const assercoes = {
+//     ehExatemanteIgualA(esperado) {
+//       assert.strictEqual(valor, esperado, 'O valor retornado não é o esperado');
+//     },
+//   };
+//   return assercoes;
+// };
 
-teste('somaHorasExtras', () => {
-  const esperado = 2500;
-  const retornado = somaHorasExtras(2000, 500);
+// const teste = (titulo, funcaoDeTeste) => {
+//   try {
+//     funcaoDeTeste();
+//     console.log(`${titulo} passou`);
+//   } catch (error) {
+//     console.log(`${titulo} não passou`, error);
+//   }
+// };
 
-  verificaSe(retornado).ehExatemanteIgualA(esperado);
-});
+// teste('somaHorasExtras', () => {
+//   const esperado = 2500;
+//   const retornado = somaHorasExtras(2000, 500);
 
-teste('calculaDesconto', () => {
-  const esperado = 2300;
-  const retornado = calculaDescontos(2500, 200);
+//   verificaSe(retornado).ehExatemanteIgualA(esperado);
+// });
 
-  verificaSe(retornado).ehExatemanteIgualA(esperado);
-});
+// teste('calculaDesconto', () => {
+//   const esperado = 2300;
+//   const retornado = calculaDescontos(2500, 200);
+
+//   verificaSe(retornado).ehExatemanteIgualA(esperado);
+// });
