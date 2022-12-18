@@ -1,12 +1,12 @@
 import Carrinho from '../carrinho.js';
-import Item from '../item.js'
+import Item from '../item.js';
 
 describe('Teste do carrinho', () => {
   it('Deve inicializar com carrinho vazio', () => {
     const carrinho = new Carrinho();
 
     expect(carrinho.subtotal).toBe(null);
-  })
+  });
 
   it('Deve guargar os itens', () => {
     const item = new Item('Banana', 2, 5);
@@ -28,5 +28,13 @@ describe('Teste do carrinho', () => {
     const carrinho = new Carrinho();
 
     expect(carrinho).toHaveProperty('total');
-  })
+  });
+
+  it('Deve lançar erro ao finalizar compra com carrinho vazio', () => {
+    function capturaErrorCarnho() {
+      const carrinho = new Carrinho();
+      carrinho.finalizaCompra();
+    }
+    expect(capturaErrorCarnho).toThrowError('Carrinho de compras vazio!!!');
+  });
 });
